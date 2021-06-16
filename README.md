@@ -22,6 +22,16 @@
 
 #
 
+## 🐺 Setup CTB:
+```cs
+/*
+  *- Download / install python 3.5+ (click to add path)
+  *- Run install.bat
+  *- Put your proxies in /source.proxy.txt
+  *- Put url in /source/url.txt
+*/
+```
+
 ## 🐺 Setup proxies:
 ```cs
 /*
