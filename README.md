@@ -29,6 +29,7 @@
   *- Run install.bat
   *- Put your proxies in /source.proxy.txt
   *- Put url in /source/url.txt
+  /* Put you webhook on ./main.py
 */
 ```
 
