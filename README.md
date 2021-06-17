@@ -14,7 +14,7 @@
 ## 🐺 Features:
 ```cs
 /*
-  *- The first
+  *- Active Support
   *- Fast
   *- Proxy support: http/s, socks4/5, premieum (with password)
 */
@@ -25,7 +25,7 @@
 ## 🐺 Setup CTB:
 ```cs
 /*
-  *- Download / install python 3.5+ (click to add path)
+  *- Download / install python 3.9.8 (click to add path)
   *- Run install.bat
   *- Put your proxies in /source.proxy.txt
   *- Put url in /source/url.txt
