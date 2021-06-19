@@ -1,6 +1,7 @@
 from colorama import Fore, Style, init; init()
 from fake_useragent import UserAgent
 from requests import Session, post
+import ctypes 
 from threading import Thread
 import time, math
 
@@ -76,7 +77,7 @@ class CTB():
             time.sleep(1)   
             self.used_proxy  = list(set(self.used_proxy))
             self.error_proxy = list(set(self.error_proxy))
-            print(f'[{Fore.LIGHTRED_EX}{time.strftime("%H:%M:%S", time.localtime())}{Fore.WHITE}] BOT: {Fore.GREEN}{self.botted}{Fore.WHITE} ERROR: {Fore.YELLOW}{self.error}{Fore.WHITE} USED PROXY: {Fore.LIGHTMAGENTA_EX}{len(self.used_proxy)}{Fore.WHITE}/{Fore.MAGENTA}{len(self.proxy_list)}{Fore.WHITE} EARN ~{Fore.CYAN}{self.botted * 0.0025}{Fore.WHITE}€', end='\r') #  [{Fore.LIGHTRED_EX}{"#" * (math.ceil(len(self.used_proxy)/10))}{"-" * ((math.floor(len(self.proxy_list)) / 10) - math.ceil(len(self.used_proxy))) / 10}{Fore.WHITE}] {math.floor(len(self.proxy_list))}% 
+            ctypes.windll.kernel32.SetConsoleTitleW(f'[{time.strftime("%H:%M:%S", time.localtime())}] BOT: {self.botted} ERROR: {self.error} USED PROXY: {len(self.used_proxy)}/{len(self.proxy_list)} EARN ~{self.botted * 0.0025}€') #  [{Fore.LIGHTRED_EX}{"#" * (math.ceil(len(self.used_proxy)/10))}{"-" * ((math.floor(len(self.proxy_list)) / 10) - math.ceil(len(self.used_proxy))) / 10}{Fore.WHITE}] {math.floor(len(self.proxy_list))}% 
          
         BOT.send_hook()
 
@@ -94,13 +95,21 @@ class CTB():
                     session.headers = {'user-agent': UserAgent().random}
                     session.proxies = {'http': proxy, 'https': proxy}
                     response = session.get('https://www.mylink1.biz/link/redirect/?url=' + session.get(url).text.split('https://www.mylink1.biz/link/redirect/?url=')[1].split('">')[0])
+                    
 
                     if response.status_code == 200:
                         self.botted += 1
+                        print(Fore.LIGHTGREEN_EX + Style.BRIGHT + "[+] 1 Successful Click", end='\n')
+                    
+                    if response.status_code == 429:
+                        self.error += 1
+                        print(Fore.LIGHTRED_EX + "[-] This proxy is currently rate-limited", end='\n')
                     
                 except:
                     self.error_proxy.append(proxy)
                     self.error += 1
+                    
+                    
     
     '''
     Obtennir les proportions parfaite entre chaque thread et chaque proxy
@@ -147,7 +156,7 @@ if __name__ == '__main__':
     ''' + Style.RESET_ALL)
 
     while True:
-        BOT = CTB('https://discord.com/api/webhooks/000000/xxxxxxxxx')
+        BOT = CTB('https://discord.com/api/webhooks/854778647625465856/ESQjTTV3tLEPht6wExmB8MRH0z5ylnXvqqS2VDp2UY_UW-5eo2FgYtr9grwaiDPHKOqL')
         BOT.load_files()
         BOT.start_worker()
         time.sleep(1)
