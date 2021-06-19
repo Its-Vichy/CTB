@@ -156,7 +156,7 @@ if __name__ == '__main__':
     ''' + Style.RESET_ALL)
 
     while True:
-        BOT = CTB('https://discord.com/api/webhooks/854778647625465856/ESQjTTV3tLEPht6wExmB8MRH0z5ylnXvqqS2VDp2UY_UW-5eo2FgYtr9grwaiDPHKOqL')
+        BOT = CTB('https://discord.com/api/webhooks/000000/xxxxxxxxx')
         BOT.load_files()
         BOT.start_worker()
         time.sleep(1)
