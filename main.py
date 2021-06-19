@@ -1,7 +1,7 @@
 from colorama import Fore, Style, init; init()
 from fake_useragent import UserAgent
 from requests import Session, post
-import ctypes 
+from os import system
 from threading import Thread
 import time, math
 
@@ -77,7 +77,7 @@ class CTB():
             time.sleep(1)   
             self.used_proxy  = list(set(self.used_proxy))
             self.error_proxy = list(set(self.error_proxy))
-            ctypes.windll.kernel32.SetConsoleTitleW(f'[{time.strftime("%H:%M:%S", time.localtime())}] BOT: {self.botted} ERROR: {self.error} USED PROXY: {len(self.used_proxy)}/{len(self.proxy_list)} EARN ~{self.botted * 0.0025}€') #  [{Fore.LIGHTRED_EX}{"#" * (math.ceil(len(self.used_proxy)/10))}{"-" * ((math.floor(len(self.proxy_list)) / 10) - math.ceil(len(self.used_proxy))) / 10}{Fore.WHITE}] {math.floor(len(self.proxy_list))}% 
+            system("title " + f'[{time.strftime("%H:%M:%S", time.localtime())}] BOT: {self.botted} ERROR: {self.error} USED PROXY: {len(self.used_proxy)}/{len(self.proxy_list)} EARN ~{self.botted * 0.0025}€') #  [{Fore.LIGHTRED_EX}{"#" * (math.ceil(len(self.used_proxy)/10))}{"-" * ((math.floor(len(self.proxy_list)) / 10) - math.ceil(len(self.used_proxy))) / 10}{Fore.WHITE}] {math.floor(len(self.proxy_list))}% 
          
         BOT.send_hook()
 
