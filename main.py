@@ -171,7 +171,7 @@ if __name__ == '__main__':
    ___ _____ ___ 
   / __|_   _| _ )
  | (__  | | | _ \\
-  \___| |_| |___/  Ѵιcнч"RCΛ#1337 | https://github.com/Its-Vichy | discord.gg/rca
+  \___| |_| |___/  https://github.com/Its-Vichy/CTB | discord.gg/palace-fr
                  
 
     ''' + Style.RESET_ALL)
