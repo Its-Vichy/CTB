@@ -1,5 +1,4 @@
 from colorama import Fore, Style, init; init()
-from colorfull import init; init()
 from fake_useragent import UserAgent
 from requests import Session, post
 from threading import Thread
